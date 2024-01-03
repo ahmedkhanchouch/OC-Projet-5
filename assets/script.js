@@ -1,19 +1,30 @@
 let imageCourante = 0;
 const listImages = ['/assets/images/slideshow/slide1.jpg', '/assets/images/slideshow/slide2.jpg',	'/assets/images/slideshow/slide3.jpg' , '/assets/images/slideshow/slide4.png'];
+let dots = document.querySelectorAll('.dot');
 
 document.getElementById('flecheDroite').addEventListener('click', () => {
+dots[imageCourante].classList.remove('dot_selected');
   imageCourante = imageCourante + 1;
+  if (imageCourante >= listImages.length){
+	imageCourante = 0 ;
+  }
   document
-    .getElementById('img-carroussel')
-    .setAttribute('src', listImages[imageCourante]);
+  .getElementById('img-carroussel')
+  .setAttribute('src', listImages[imageCourante]);
+	dots[imageCourante].classList.add('dot_selected');
 });
 
 document.getElementById('flecheGauche').addEventListener('click', () => {
-  imageCourante = imageCourante - 1;
-  document
+	dots[imageCourante ].classList.remove('dot_selected');
+	imageCourante = imageCourante - 1;
+	if (imageCourante <= 0 ){
+		imageCourante = listImages.length - 1 ;
+	}
+	document
     .getElementById('img-carroussel')
     .setAttribute('src', listImages[imageCourante]);
 	
+	dots[imageCourante].classList.add('dot_selected')
 });
 
 const slides = [
