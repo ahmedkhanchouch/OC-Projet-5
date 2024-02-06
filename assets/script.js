@@ -15,7 +15,7 @@ dots[imageCourante].classList.remove('dot_selected');
 });
 
 document.getElementById('flecheGauche').addEventListener('click', () => {
-	dots[imageCourante ].classList.remove('dot_selected');
+	dots[imageCourante].classList.remove('dot_selected');
 	imageCourante = imageCourante - 1;
 	if (imageCourante <= 0 ){
 		imageCourante = listImages.length - 1 ;
